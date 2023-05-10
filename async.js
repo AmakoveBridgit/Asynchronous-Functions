@@ -19,12 +19,22 @@ delayMessage('I am writing code',2000)
 // for each user ID one by one, in sequence.
 async function fetchAndlogsData(){
     for(let i=0;i<userId.length;i++){
-        const userData=await getUserData()
+        const userData=await getUserData(id)
         console.log(userData);
     }
+
+
+    function getUserData(){
+        return new Promise((resolves,rejects)=>{
+          
+        })
+        .then(data => resolve(data))
+        .catch(error => reject(error));
+    }
+    const userId= [1,2,3,4,5]
+    fetchAndlogsData()
 }
-const userId= [1,2,3,4,5]
-fetchAndlogsData()
+
 
 
 
@@ -33,13 +43,19 @@ fetchAndlogsData()
 //  rejects if there's an error. Write a function that calls 
 //  performTask() and logs a custom success message if the 
 //  task is successful, and a custom error message if there's an error
- function tasks(){
-    performTask()
-    
-   
-.then(()=> {console.log('Task is successful');}) 
-.catch(()=> {console.log('Error message');})
 
-console.log({message})
- }
- tasks()
+
+ async function performTask() {
+    
+  }
+  
+  async function task() {
+    try {
+      await performTask();
+      console.log("Task completed");
+    } catch (error) {
+      console.log("Error occurred");
+    }
+  }
+  
+  task();
